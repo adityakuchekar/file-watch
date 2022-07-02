@@ -1,0 +1,52 @@
+.flie-list-shell {    
+    width: 97vw;
+    // height: 100vh;
+    // border: solid green 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+
+    .file-input {
+        display: flex;
+        height: 25px;
+        padding: 5px;
+        // border: solid red 1px;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            width: 50vw;
+            padding: 1px;
+        }
+
+        button {
+            width: 10vw;
+            cursor: pointer;
+            margin: 2px;
+        }
+    }
+
+    .sub-container {
+        display: flex;
+        
+        .file-list {
+            width: 50vw;
+
+            .file-name {
+                height: 20px;
+                margin: 2px;
+                // border: solid green 1px;
+            }
+        }
+
+        .change-log {
+            width: 50vw;
+
+            .log {
+                height: 20px;
+                margin: 2px;
+                // border: solid green 1px;
+            }
+        }
+    }
+}

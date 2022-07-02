@@ -1,0 +1,25 @@
+<div class="flie-list-shell">
+    <div class="file-input">
+        <!-- <input type="text" placeholder="Enter the directory path you want to watch" name="dir-path" [(ngModel)]="directoryPath"> -->
+        <button [disabled]="!watchFlag" (click)="startWatching()">Watch</button>
+        <button [disabled]="!stopFlag" (click)="clearAndStop()">Stop & Clear</button>
+    </div>
+    <div class="sub-container">
+        <div *ngIf="fileList.length > 0" class="file-list">
+            <div class="file-name">File List</div>
+            <ul>
+                <li *ngFor="let file of fileList" class="file-name">
+                    {{file}}
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="changeLog.length > 0" class="change-log">
+            <div class="log">Change Log</div>
+            <ul>
+                <li *ngFor="let log of changeLog" class="log">
+                    {{log}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
