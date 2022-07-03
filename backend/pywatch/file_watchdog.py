@@ -1,12 +1,8 @@
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
-
+from utils import get_name
 dir_to_watch = "/home/aditya/aditya_kuchekar/watchdog"
-
-
-def get_name(string):
-    return string.split("/")[-1]
 
 
 class Watcher:
@@ -35,28 +31,22 @@ class MonitorFolder(FileSystemEventHandler):
         self.queue = queue
 
     def on_created(self, event):
-        self.queue.append({
-            "event_type": event.event_type,
-            "src_path": event.src_path,
-            "file_name": get_name(event.src_path),
-            "is_directory": event.is_directory
-        })
+        if not event.is_directory:
+            self.queue.append({
+                "event_type": event.event_type,
+                "src_path": event.src_path,
+                "file_name": get_name(event.src_path),
+                "is_directory": event.is_directory
+            })
 
     def on_deleted(self, event):
-        self.queue.append({
-            "event_type": event.event_type,
-            "src_path": event.src_path,
-            "file_name": get_name(event.src_path),
-            "is_directory": event.is_directory
-        })
-
-    # def on_moved(self, event):
-    #     self.queue.append({
-    #         "event_type": event.event_type,
-    #         "src_path": event.src_path,
-    #         "dest_path": event.dest_path,
-    #         "is_directory": event.is_directory
-    #     })
+        if not event.is_directory:
+            self.queue.append({
+                "event_type": event.event_type,
+                "src_path": event.src_path,
+                "file_name": get_name(event.src_path),
+                "is_directory": event.is_directory
+            })
 
 
 def get_watcher(directory, queue):

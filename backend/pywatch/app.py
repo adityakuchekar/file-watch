@@ -40,7 +40,7 @@ def get_files():
     """
     global keep_alive
     keep_alive = True
-    curr_dir_list = [f for f in os.listdir(dir_to_watch)]
+    curr_dir_list = [f for f in os.listdir(dir_to_watch) if os.path.isfile(os.path.join(dir_to_watch, f))]
     r = jsonify(curr_dir_list)
     r = add_cors_header(r)
     return r
