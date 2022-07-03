@@ -5,7 +5,8 @@ from flask import Flask, Response, jsonify
 from file_watchdog import get_watcher
 
 #  the directory to monitor
-dir_to_watch = os.environ.get("DIR_TO_WATCH", "/home/aditya/aditya_kuchekar/watchdog")
+# dir_to_watch = os.environ.get("DIR_TO_WATCH", "/home/aditya/aditya_kuchekar/watchdog")
+dir_to_watch = "/datavol"
 #  queue used to store events pushed by watchdog. Objects from this queue are streamed to the server as SSE
 queue = []
 #  flag indicating connection should be kept alive or closed

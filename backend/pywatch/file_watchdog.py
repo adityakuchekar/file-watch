@@ -59,9 +59,9 @@ class MonitorFolder(FileSystemEventHandler):
     #     })
 
 
-def get_watcher(dir_to_watch, queue):
+def get_watcher(directory, queue):
     # w = Watcher("/home/aditya/aditya_kuchekar/watchdog", MonitorFolder())
-    w = Watcher(directory=dir_to_watch, handler=MonitorFolder(queue))
+    w = Watcher(directory=directory, handler=MonitorFolder(queue))
     w.run()
 
 
